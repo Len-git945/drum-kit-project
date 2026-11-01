@@ -50,6 +50,19 @@ function buttonAnimation(currentKey){
             activeButton.classList.remove("pressed");
         },100);
 }
+// Mengunci layar ke landscape saat aplikasi dimuat
+function lockLandscape() {
+  if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('landscape')
+      .catch(function(error) {
+        console.log("Auto-landscape aktif setelah user berinteraksi dengan layar.");
+      });
+  }
+}
+
+// Jalankan fungsi saat web dibuka
+window.addEventListener("load", lockLandscape);
+
 
 
 
