@@ -79,3 +79,58 @@ footer {
   margin: 10px;
   background-color: white;
 }
+/* ========================================================
+   KODE TAMBAHAN UNTUK OTOMATIS RESPONSIF LANDSCAPE DI MOBILE 
+   ======================================================== */
+
+/* 1. Mengatur susunan tombol drum saat HP posisi landscape (mendatar) */
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  h1 {
+    font-size: 2.5rem; /* Mengecilkan judul agar tidak memakan ruang */
+    margin: 10px 0;
+  }
+
+  .set {
+    margin: 2% auto; /* Mengurangi jarak atas/bawah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Tombol otomatis menyesuaikan lebar layar */
+    gap: 5px;
+  }
+
+  .drum {
+    width: 70px; /* Mengecilkan tombol dari 150px menjadi 70px agar muat di layar HP */
+    height: 70px;
+    font-size: 2rem; /* Mengecilkan teks huruf drum */
+    border-width: 4px; /* Menipiskan border */
+    margin: 5px;
+    background-size: cover; /* Memastikan gambar instrumen tetap muat di tombol kecil */
+  }
+}
+
+/* 2. Memberi peringatan jika HP masih posisi tegak (portrait) */
+@media screen and (orientation: portrait) and (max-width: 600px) {
+  /* Sembunyikan judul, tombol drum, dan footer jika posisi masih tegak */
+  h1, .set, footer {
+    display: none !important;
+  }
+
+  /* Tampilkan instruksi memutar HP */
+  body::before {
+    content: "🔄 Silakan aktifkan 'Putar Otomatis' & miringkan HP Anda ke posisi Landscape untuk bermain!";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: #DBEDF3;
+    font-family: "Arvo", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 30px;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+}
+
